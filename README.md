@@ -108,12 +108,14 @@ Open your browser at `http://localhost:8501`
 
 Create a `requirements.txt` with the following:
 
-```
 streamlit
 google-genai
 python-dotenv
-reportlab
+pillow
+pypdf
+streamlit-mic-recorder
 gtts
+
 ```
 
 ---
