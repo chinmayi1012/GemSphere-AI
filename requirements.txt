@@ -5,3 +5,4 @@ pillow
 pypdf
 streamlit-mic-recorder
 gtts
+reportlab
