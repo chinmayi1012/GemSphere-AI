@@ -521,6 +521,7 @@ Potential upgrades include:
 
 ---
 Deployment link : https://gemsphere-ai-app.streamlit.app/ 
+
 video link: https://drive.google.com/file/d/1LNAiJA_o3dKT5Q5cOHe7Y_eCKb8NsRfh/view?usp=sharing
 ## 🌟 Conclusion
 
