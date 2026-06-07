@@ -97,13 +97,13 @@ GEMINI_API_KEY=your_google_gemini_api_key_here
 ### 5. Run the app
 
 ```bash
- python -m streamlit run app.py
+ https://gemsphere-ai-app.streamlit.app/
 ```
 
 Open your browser at `http://localhost:8501`
 
 ---
-
+video link:https://drive.google.com/file/d/1LNAiJA_o3dKT5Q5cOHe7Y_eCKb8NsRfh/view?usp=sharing
 ## 📦 Requirements
 
 Create a `requirements.txt` with the following:
