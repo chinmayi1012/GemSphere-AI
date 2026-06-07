@@ -196,6 +196,8 @@ Built with ❤️ using Streamlit and Google Gemini.
 | **Name** | Chinmayi.P |
 | **Email** | lakshmijyothi663@gmail.com|
 | **GitHub** | [@chinmayi1012](https://github.com/chinmayi1012) |
+| **Deployment link**|https://gemsphere-ai-app.streamlit.app/  |
+|**video link** | https://drive.google.com/file/d/1LNAiJA_o3dKT5Q5cOHe7Y_eCKb8NsRfh/view?usp=sharing |
 
 ---
 Your code is a **Multi-Agent AI Assistant built with Streamlit and Google Gemini 2.5 Flash**. Here's a detailed project description you can use for GitHub, competitions, hackathons, or resumes.
@@ -518,7 +520,7 @@ Potential upgrades include:
 * Mobile application version
 
 ---
-
+video link: https://drive.google.com/file/d/1LNAiJA_o3dKT5Q5cOHe7Y_eCKb8NsRfh/view?usp=sharing
 ## 🌟 Conclusion
 
 GemSphere AI is a comprehensive multi-agent AI platform that combines intelligent conversation, multilingual support, speech synthesis, PDF reporting, and domain-specific expertise into a single application. It demonstrates how modern AI technologies can be integrated into a user-friendly platform to assist students, developers, researchers, entrepreneurs, and professionals in their daily tasks.
