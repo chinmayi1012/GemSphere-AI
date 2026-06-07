@@ -22,14 +22,21 @@ st.set_page_config(
 # ==========================================
 # LOAD ENV
 # ==========================================
-
 load_dotenv()
 
 API_KEY = os.getenv("GEMINI_API_KEY")
 
+# Streamlit Cloud Secrets fallback
 if not API_KEY:
-    st.error("Please add GEMINI_API_KEY in .env file")
+    try:
+        API_KEY = st.secrets["GEMINI_API_KEY"]
+    except Exception:
+        pass
+
+if not API_KEY:
+    st.error("GEMINI_API_KEY not found.")
     st.stop()
+
 
 # ==========================================
 # GEMINI CLIENT
@@ -268,7 +275,6 @@ User:
 
 Assistant:
 """
-
     with st.chat_message("assistant"):
 
         with st.spinner("Thinking..."):
@@ -280,58 +286,20 @@ Assistant:
                     contents=final_prompt
                 )
 
-                answer = (
-                    response.text
-                    if response.text
-                    else "No response generated."
-                )
-
-                # Typing Animation
-                placeholder = st.empty()
-
-                typed = ""
-
-                for word in answer.split():
-
-                    typed += word + " "
-
-                    placeholder.markdown(
-                        typed + "▌"
-                    )
-
-                    time.sleep(0.02)
-
-                placeholder.markdown(typed)
-
-                # Text To Speech
-                try:
-
-                    tts = gTTS(answer)
-
-                    audio_file = tempfile.NamedTemporaryFile(
-                        delete=False,
-                        suffix=".mp3"
-                    )
-
-                    tts.save(audio_file.name)
-
-                    st.audio(audio_file.name)
-
-                except:
-                    pass
-
-                # Save Chat Memory
-                st.session_state.messages.append(
-                    {
-                        "role": "assistant",
-                        "content": answer
-                    }
-                )
+                answer = response.text or "No response generated."
 
             except Exception as e:
 
-                st.error(
-                    "Failed to generate response."
-                )
+                answer = f"⚠️ Error: {str(e)}"
+                print(e)
 
-                st.exception(e)
+        st.markdown(answer)
+
+    st.session_state.messages.append(
+        {
+            "role": "assistant",
+            "content": answer
+        }
+    )
+
+     
