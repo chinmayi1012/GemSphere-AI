@@ -258,11 +258,7 @@ if prompt:
     history = ""
 
     for msg in st.session_state.messages[-10:]:
-
-        history += f"""
-{msg['role']}:
-{msg['content']}
-"""
+        history += f"{msg['role']}:\n{msg['content']}\n"
 
     final_prompt = f"""
 {system_prompt}
@@ -275,12 +271,13 @@ User:
 
 Assistant:
 """
+
+    # Assistant block MUST be here
     with st.chat_message("assistant"):
 
         with st.spinner("Thinking..."):
 
             try:
-
                 response = client.models.generate_content(
                     model="gemini-2.5-flash",
                     contents=final_prompt
@@ -290,8 +287,14 @@ Assistant:
 
             except Exception as e:
 
-                answer = f"⚠️ Error: {str(e)}"
-                print(e)
+                error_text = str(e)
+
+                if "429" in error_text:
+                    answer = "⚠️ Gemini API quota exceeded. Please try again later."
+                else:
+                    answer = f"⚠️ Error: {error_text}"
+
+                print(error_text)
 
         st.markdown(answer)
 
@@ -301,5 +304,3 @@ Assistant:
             "content": answer
         }
     )
-
-     
